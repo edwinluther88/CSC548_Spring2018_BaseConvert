@@ -11,6 +11,7 @@ public class BaseToDecimal extends AppCompatActivity
     private EditText inputET;
     private TextView answerTV;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -23,21 +24,52 @@ public class BaseToDecimal extends AppCompatActivity
 
     public void base2ButtonPressed(View v)
     {
-        this.answerTV.setText("Base 2");
+        int tempResult = 0;
+        String sValue = this.inputET.getText().toString();
+        for(int i=sValue.length()-1, j=0; i >= 0; i--,j++){
+            int temp = 0;
+            temp = (int)Math.pow(2,j) * (sValue.charAt(i) - 48);
+            tempResult += temp;
+        }
+        this.answerTV.setText("Base 2:  " + tempResult);
     }
 
     public void base8ButtonPressed(View v)
     {
-        this.answerTV.setText("Base 8");
+        String sValue = this.inputET.getText().toString();
+        int result = 0;
+        for(int i=sValue.length()-1,j=0; i>=0; i--,j++)
+        {
+            int temp = 0;
+            temp = (int)Math.pow(8, j) * (sValue.charAt(i) - 48);
+            result += temp;
+        }
+        this.answerTV.setText("Base 8: " + result);
     }
 
     public void base10ButtonPressed(View v)
     {
-        this.answerTV.setText("Base 10");
+        String sValue = this.inputET.getText().toString();
+        int result = 0;
+        for(int i=sValue.length()-1,j=0; i>=0; i--,j++)
+        {
+            int temp = 0;
+            temp = (int)Math.pow(10, j) * (sValue.charAt(i) - 48);
+            result += temp;
+        }
+        this.answerTV.setText("Base 10: " + result);
     }
 
     public void base16ButtonPressed(View v)
     {
-        this.answerTV.setText("Base 16");
+        String sValue = this.inputET.getText().toString();
+        int result = 0;
+        for(int i=sValue.length()-1,j=0; i>=0; i--,j++)
+        {
+            int temp = 0;
+            temp = (int)Math.pow(16, j) * (sValue.charAt(i) - 48);
+            result += temp;
+        }
+        this.answerTV.setText("Base 16: " + result);
     }
 }
